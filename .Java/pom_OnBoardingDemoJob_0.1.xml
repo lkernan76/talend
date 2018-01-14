@@ -12,7 +12,7 @@
   <name>TEST_PROJECT OnBoardingDemoJob (Job Designs)</name>
   <properties>
     <output.resources.dir>${talend.job.name}/src/main/resources</output.resources.dir>
-    <talend.job.bat.classpath>.;../lib/routines.jar;../lib/dom4j-1.6.1.jar;../lib/log4j-1.2.16.jar;onboardingdemojob_0_1.jar;</talend.job.bat.classpath>
+    <talend.job.bat.classpath>.;../lib/routines.jar;../lib/dom4j-1.6.1.jar;../lib/log4j-1.2.16.jar;../lib/talendcsv.jar;onboardingdemojob_0_1.jar;</talend.job.bat.classpath>
     <talend.job.applyContextToChildren>false</talend.job.applyContextToChildren>
     <talend.job.version>0.1</talend.job.version>
     <talend.job.sh.addition/>
@@ -25,13 +25,13 @@
     <talend.project.branch>trunk</talend.project.branch>
     <talend.job.context>Default</talend.job.context>
     <talend.job.stat>true</talend.job.stat>
-    <talend.job.date>2018-01-13 103955350</talend.job.date>
+    <talend.job.date>2018-01-13 113123059</talend.job.date>
     <current.resources.dir>${basedir}/src/main/resources</current.resources.dir>
     <talend.job.package>test_project.onboardingdemojob_0_1</talend.job.package>
     <talend.job.class>${talend.job.package}.${talend.job.name}</talend.job.class>
     <talend.job.name>OnBoardingDemoJob</talend.job.name>
     <talend.job.bat.addition/>
-    <talend.job.sh.classpath>.:$ROOT_PATH:$ROOT_PATH/../lib/routines.jar:$ROOT_PATH/../lib/dom4j-1.6.1.jar:$ROOT_PATH/../lib/log4j-1.2.16.jar:$ROOT_PATH/onboardingdemojob_0_1.jar:</talend.job.sh.classpath>
+    <talend.job.sh.classpath>.:$ROOT_PATH:$ROOT_PATH/../lib/routines.jar:$ROOT_PATH/../lib/dom4j-1.6.1.jar:$ROOT_PATH/../lib/log4j-1.2.16.jar:$ROOT_PATH/../lib/talendcsv.jar:$ROOT_PATH/onboardingdemojob_0_1.jar:</talend.job.sh.classpath>
     <talend.job.id>_QKNNUGZ8EeWm5YvsrIoYzQ</talend.job.id>
     <talend.project.id>0</talend.project.id>
     <talend.job.framework/>
@@ -46,6 +46,11 @@
     <dependency>
       <groupId>org.talend.libraries</groupId>
       <artifactId>log4j-1.2.16</artifactId>
+      <version>6.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.talend.libraries</groupId>
+      <artifactId>talendcsv</artifactId>
       <version>6.0.0</version>
     </dependency>
   </dependencies>

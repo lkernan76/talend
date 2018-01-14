@@ -282,6 +282,17 @@ public class OnBoardingDemoJob implements TalendJob {
 		tRowGenerator_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
+	public void tFileOutputDelimited_1_error(Exception exception,
+			String errorComponent, final java.util.Map<String, Object> globalMap)
+			throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tRowGenerator_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
 	public void tRowGenerator_1_onSubJobError(Exception exception,
 			String errorComponent, final java.util.Map<String, Object> globalMap)
 			throws TalendException {
@@ -290,6 +301,129 @@ public class OnBoardingDemoJob implements TalendJob {
 				.currentThread().getId() + "", "FATAL", "",
 				exception.getMessage(),
 				ResumeUtil.getExceptionStackTrace(exception), "");
+
+	}
+
+	public static class row2Struct implements
+			routines.system.IPersistableRow<row2Struct> {
+		final static byte[] commonByteArrayLock_TEST_PROJECT_OnBoardingDemoJob = new byte[0];
+		static byte[] commonByteArray_TEST_PROJECT_OnBoardingDemoJob = new byte[0];
+
+		public String newColumn;
+
+		public String getNewColumn() {
+			return this.newColumn;
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_TEST_PROJECT_OnBoardingDemoJob.length) {
+					if (length < 1024
+							&& commonByteArray_TEST_PROJECT_OnBoardingDemoJob.length == 0) {
+						commonByteArray_TEST_PROJECT_OnBoardingDemoJob = new byte[1024];
+					} else {
+						commonByteArray_TEST_PROJECT_OnBoardingDemoJob = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_TEST_PROJECT_OnBoardingDemoJob,
+						0, length);
+				strReturn = new String(
+						commonByteArray_TEST_PROJECT_OnBoardingDemoJob, 0,
+						length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos)
+				throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_TEST_PROJECT_OnBoardingDemoJob) {
+
+				try {
+
+					int length = 0;
+
+					this.newColumn = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// String
+
+				writeString(this.newColumn, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("newColumn=" + newColumn);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(row2Struct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(),
+						object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
 
 	}
 
@@ -439,6 +573,126 @@ public class OnBoardingDemoJob implements TalendJob {
 				globalResumeTicket = true;
 
 				row1Struct row1 = new row1Struct();
+				row1Struct row2 = row1;
+
+				/**
+				 * [tFileOutputDelimited_1 begin ] start
+				 */
+
+				ok_Hash.put("tFileOutputDelimited_1", false);
+				start_Hash.put("tFileOutputDelimited_1",
+						System.currentTimeMillis());
+
+				currentComponent = "tFileOutputDelimited_1";
+
+				if (execStat) {
+					if (resourceMap.get("inIterateVComp") == null) {
+
+						runStat.updateStatOnConnection("row2" + iterateId, 0, 0);
+
+					}
+				}
+
+				int tos_count_tFileOutputDelimited_1 = 0;
+
+				class BytesLimit65535_tFileOutputDelimited_1 {
+					public void limitLog4jByte() throws Exception {
+
+					}
+				}
+
+				new BytesLimit65535_tFileOutputDelimited_1().limitLog4jByte();
+
+				String fileName_tFileOutputDelimited_1 = "";
+				fileName_tFileOutputDelimited_1 = (new java.io.File(
+						"C:/files/out.csv")).getAbsolutePath().replace("\\",
+						"/");
+				String fullName_tFileOutputDelimited_1 = null;
+				String extension_tFileOutputDelimited_1 = null;
+				String directory_tFileOutputDelimited_1 = null;
+				if ((fileName_tFileOutputDelimited_1.indexOf("/") != -1)) {
+					if (fileName_tFileOutputDelimited_1.lastIndexOf(".") < fileName_tFileOutputDelimited_1
+							.lastIndexOf("/")) {
+						fullName_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1;
+						extension_tFileOutputDelimited_1 = "";
+					} else {
+						fullName_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1
+								.substring(0, fileName_tFileOutputDelimited_1
+										.lastIndexOf("."));
+						extension_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1
+								.substring(fileName_tFileOutputDelimited_1
+										.lastIndexOf("."));
+					}
+					directory_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1
+							.substring(0, fileName_tFileOutputDelimited_1
+									.lastIndexOf("/"));
+				} else {
+					if (fileName_tFileOutputDelimited_1.lastIndexOf(".") != -1) {
+						fullName_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1
+								.substring(0, fileName_tFileOutputDelimited_1
+										.lastIndexOf("."));
+						extension_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1
+								.substring(fileName_tFileOutputDelimited_1
+										.lastIndexOf("."));
+					} else {
+						fullName_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1;
+						extension_tFileOutputDelimited_1 = "";
+					}
+					directory_tFileOutputDelimited_1 = "";
+				}
+				boolean isFileGenerated_tFileOutputDelimited_1 = true;
+				java.io.File filetFileOutputDelimited_1 = new java.io.File(
+						fileName_tFileOutputDelimited_1);
+				globalMap.put("tFileOutputDelimited_1_FILE_NAME",
+						fileName_tFileOutputDelimited_1);
+				if (filetFileOutputDelimited_1.exists()) {
+					isFileGenerated_tFileOutputDelimited_1 = false;
+				}
+				int nb_line_tFileOutputDelimited_1 = 0;
+				int splitedFileNo_tFileOutputDelimited_1 = 0;
+				int currentRow_tFileOutputDelimited_1 = 0;
+
+				final String OUT_DELIM_tFileOutputDelimited_1 = /**
+				 * Start field
+				 * tFileOutputDelimited_1:FIELDSEPARATOR
+				 */
+				";"/** End field tFileOutputDelimited_1:FIELDSEPARATOR */
+				;
+
+				final String OUT_DELIM_ROWSEP_tFileOutputDelimited_1 = /**
+				 * Start
+				 * field tFileOutputDelimited_1:ROWSEPARATOR
+				 */
+				"\n"/** End field tFileOutputDelimited_1:ROWSEPARATOR */
+				;
+
+				// create directory only if not exists
+				if (directory_tFileOutputDelimited_1 != null
+						&& directory_tFileOutputDelimited_1.trim().length() != 0) {
+					java.io.File dir_tFileOutputDelimited_1 = new java.io.File(
+							directory_tFileOutputDelimited_1);
+					if (!dir_tFileOutputDelimited_1.exists()) {
+						dir_tFileOutputDelimited_1.mkdirs();
+					}
+				}
+
+				// routines.system.Row
+				java.io.Writer outtFileOutputDelimited_1 = null;
+
+				outtFileOutputDelimited_1 = new java.io.BufferedWriter(
+						new java.io.OutputStreamWriter(
+								new java.io.FileOutputStream(
+										fileName_tFileOutputDelimited_1, true),
+								"ISO-8859-15"));
+
+				resourceMap.put("out_tFileOutputDelimited_1",
+						outtFileOutputDelimited_1);
+				resourceMap.put("nb_line_tFileOutputDelimited_1",
+						nb_line_tFileOutputDelimited_1);
+
+				/**
+				 * [tFileOutputDelimited_1 begin ] stop
+				 */
 
 				/**
 				 * [tLogRow_1 begin ] start
@@ -573,10 +827,45 @@ public class OnBoardingDemoJob implements TalendJob {
 
 					// /////////////////////
 
+					row2 = row1;
+
 					tos_count_tLogRow_1++;
 
 					/**
 					 * [tLogRow_1 main ] stop
+					 */
+
+					/**
+					 * [tFileOutputDelimited_1 main ] start
+					 */
+
+					currentComponent = "tFileOutputDelimited_1";
+
+					// row2
+					// row2
+
+					if (execStat) {
+						runStat.updateStatOnConnection("row2" + iterateId, 1, 1);
+					}
+
+					StringBuilder sb_tFileOutputDelimited_1 = new StringBuilder();
+					if (row2.newColumn != null) {
+						sb_tFileOutputDelimited_1.append(row2.newColumn);
+					}
+					sb_tFileOutputDelimited_1
+							.append(OUT_DELIM_ROWSEP_tFileOutputDelimited_1);
+
+					nb_line_tFileOutputDelimited_1++;
+					resourceMap.put("nb_line_tFileOutputDelimited_1",
+							nb_line_tFileOutputDelimited_1);
+
+					outtFileOutputDelimited_1.write(sb_tFileOutputDelimited_1
+							.toString());
+
+					tos_count_tFileOutputDelimited_1++;
+
+					/**
+					 * [tFileOutputDelimited_1 main ] stop
 					 */
 
 					/**
@@ -622,6 +911,39 @@ public class OnBoardingDemoJob implements TalendJob {
 				 * [tLogRow_1 end ] stop
 				 */
 
+				/**
+				 * [tFileOutputDelimited_1 end ] start
+				 */
+
+				currentComponent = "tFileOutputDelimited_1";
+
+				if (outtFileOutputDelimited_1 != null) {
+					outtFileOutputDelimited_1.flush();
+					outtFileOutputDelimited_1.close();
+				}
+
+				globalMap.put("tFileOutputDelimited_1_NB_LINE",
+						nb_line_tFileOutputDelimited_1);
+				globalMap.put("tFileOutputDelimited_1_FILE_NAME",
+						fileName_tFileOutputDelimited_1);
+
+				resourceMap.put("finish_tFileOutputDelimited_1", true);
+
+				if (execStat) {
+					if (resourceMap.get("inIterateVComp") == null
+							|| !((Boolean) resourceMap.get("inIterateVComp"))) {
+						runStat.updateStatOnConnection("row2" + iterateId, 2, 0);
+					}
+				}
+
+				ok_Hash.put("tFileOutputDelimited_1", true);
+				end_Hash.put("tFileOutputDelimited_1",
+						System.currentTimeMillis());
+
+				/**
+				 * [tFileOutputDelimited_1 end ] stop
+				 */
+
 			}// end the resume
 
 		} catch (java.lang.Exception e) {
@@ -657,6 +979,27 @@ public class OnBoardingDemoJob implements TalendJob {
 
 				/**
 				 * [tLogRow_1 finally ] stop
+				 */
+
+				/**
+				 * [tFileOutputDelimited_1 finally ] start
+				 */
+
+				currentComponent = "tFileOutputDelimited_1";
+
+				if (resourceMap.get("finish_tFileOutputDelimited_1") == null) {
+
+					java.io.Writer outtFileOutputDelimited_1 = (java.io.Writer) resourceMap
+							.get("out_tFileOutputDelimited_1");
+					if (outtFileOutputDelimited_1 != null) {
+						outtFileOutputDelimited_1.flush();
+						outtFileOutputDelimited_1.close();
+					}
+
+				}
+
+				/**
+				 * [tFileOutputDelimited_1 finally ] stop
 				 */
 
 			} catch (java.lang.Exception e) {
@@ -1029,6 +1372,6 @@ public class OnBoardingDemoJob implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 30458 characters generated by Talend Open Studio for Data Integration on the
- * January 13, 2018 10:39:55 AM MST
+ * 40882 characters generated by Talend Open Studio for Data Integration on the
+ * January 13, 2018 11:31:22 AM MST
  ************************************************************************************************/

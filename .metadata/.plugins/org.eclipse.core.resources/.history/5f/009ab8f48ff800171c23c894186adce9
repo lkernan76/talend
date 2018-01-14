@@ -102,7 +102,6 @@
       <relatedItems xmi:id="_fAwhrviIEeepq5bhw7_KsA" id="DQTechnical" version="Latest" type="routine"/>
       <relatedItems xmi:id="_fAwhr_iIEeepq5bhw7_KsA" id="GetRandomPhoneNum" version="Latest" type="routine"/>
       <relatedItems xmi:id="_fAwhsPiIEeepq5bhw7_KsA" id="MDM" version="Latest" type="routine"/>
-      <relatedItems xmi:id="_9LhL4PiPEeepq5bhw7_KsA" id="TalendStringUtil" version="Latest" type="routine"/>
     </ItemsRelations>
     <migrationTask xmi:id="_UpcIgPiIEeepq5bhw7_KsA" id="org.talend.designer.core.ui.preferences.migration.ChangeMysqlVersionForProjectSetting" breaks="5.2.0" version="5.1.3" status="ok"/>
     <migrationTask xmi:id="_UpcIgfiIEeepq5bhw7_KsA" id="org.talend.designer.core.ui.preferences.migration.ChangeOracleVersionForProjectSetting" breaks="5.2.0" version="5.2.1" status="ok"/>

@@ -565,3 +565,19 @@ org.osgi.framework.BundleException: Could not resolve module: org.eclipse.jdt.la
 !ENTRY org.talend.platform.logging 1 0 2018-01-13 10:39:59.232
 !MESSAGE 2018-01-13 10:39:59,223 INFO  org.talend.designer.core.runprocess.Processor  - Command line: C:/java/jre/bin/java.exe -Xms256M -Xmx1024M -Dfile.encoding=UTF-8 -cp C:/talend_test/test_workspace/.Java/target/classes;.;C:/talend_test/test_workspace/.Java/lib/dom4j-1.6.1.jar;C:/talend_test/test_workspace/.Java/lib/log4j-1.2.16.jar; test_project.onboardingdemojob_0_1.OnBoardingDemoJob --context=Default --stat_port=3902 %*
 
+
+!ENTRY org.talend.platform.logging 1 0 2018-01-13 11:31:23.872
+!MESSAGE 2018-01-13 11:31:23,872 INFO  org.eclipse.m2e.core.internal.lifecyclemapping.LifecycleMappingFactory  - Using NULL lifecycle mapping for MavenProject: org.talend.master.test_project:code.Master:6.4.1 @ C:\talend_test\test_workspace\.Java\pom.xml.
+
+
+!ENTRY org.talend.platform.logging 1 0 2018-01-13 11:31:24.111
+!MESSAGE 2018-01-13 11:31:24,111 INFO  org.eclipse.m2e.core.internal.lifecyclemapping.LifecycleMappingFactory  - Using NULL lifecycle mapping for MavenProject: org.talend.master.test_project:code.Master:6.4.1 @ C:\talend_test\test_workspace\.Java\pom.xml.
+
+
+!ENTRY org.talend.platform.logging 1 0 2018-01-13 11:31:24.949
+!MESSAGE 2018-01-13 11:31:24,949 INFO  org.talend.designer.core.runprocess.Processor  - Command line: C:/java/jre/bin/java.exe -Xms256M -Xmx1024M -Dfile.encoding=UTF-8 -cp C:/talend_test/test_workspace/.Java/target/classes;.;C:/talend_test/test_workspace/.Java/lib/dom4j-1.6.1.jar;C:/talend_test/test_workspace/.Java/lib/log4j-1.2.16.jar;C:/talend_test/test_workspace/.Java/lib/talendcsv.jar; test_project.onboardingdemojob_0_1.OnBoardingDemoJob --context=Default --stat_port=3554 %*
+
+
+!ENTRY org.talend.platform.logging 1 0 2018-01-13 11:31:25.224
+!MESSAGE 2018-01-13 11:31:25,221 INFO  org.eclipse.m2e.core.internal.lifecyclemapping.LifecycleMappingFactory  - Using NULL lifecycle mapping for MavenProject: org.talend.master.test_project:code.Master:6.4.1 @ C:\talend_test\test_workspace\.Java\pom.xml.
+
